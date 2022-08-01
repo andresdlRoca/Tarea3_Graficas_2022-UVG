@@ -30,4 +30,9 @@ def identity(num):
             else:
                 matrix[row].append(0)
     return matrix
-     
+
+def dot(vec1, vec2):
+     return sum([x*y for x,y in zip(vec1, vec2)])
+
+def matMultVect(M, v):
+    return [dot(r,v) for r in M]

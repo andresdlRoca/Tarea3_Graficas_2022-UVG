@@ -1,6 +1,5 @@
 import struct
 from collections import namedtuple
-import numpy as np
 import mathlib as ml
 
 import random
@@ -99,8 +98,8 @@ class Renderer(object):
     def glTransform(self, vertex, matrix):
 
         v = V4(vertex[0], vertex[1], vertex[2], 1)
-        vt = np.matrix(matrix) @ v
-        vt = vt.tolist()[0]
+        vt =  ml.matMultVect(matrix, v)
+
         vf = V3(vt[0] / vt[3],
                 vt[1] / vt[3],
                 vt[2] / vt[3])
